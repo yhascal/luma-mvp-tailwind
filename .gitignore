@@ -1,0 +1,25 @@
+# 📦 Node.js
+node_modules
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# 🛠 Next.js build output
+.next
+out
+build
+
+# 💻 macOS
+.DS_Store
+
+# 💬 logs
+*.log
+
+# 🔒 environment files (si tu en as)
+.env
+.env.local
+.env.development
+.env.production
+
+# ⚙️ Vercel
+.vercel
