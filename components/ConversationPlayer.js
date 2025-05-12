@@ -12,6 +12,10 @@ export default function ConversationPlayer({ steps }) {
     }
   };
 
+  const skipToEnd = () => {
+    setStep(steps.length - 1);
+  };
+
   const finish = () => {
     if (question) {
       router.push(`/start?question=${question}`);
@@ -71,7 +75,7 @@ export default function ConversationPlayer({ steps }) {
       {step < steps.length - 1 && (
         <div className="flex justify-end mt-2">
           <button
-            onClick={finish}
+            onClick={skipToEnd}
             className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
           >
             Fin du scénario
