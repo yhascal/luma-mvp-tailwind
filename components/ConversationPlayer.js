@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
-export default function ConversationPlayer({ steps, onEndReached }) {
+export default function ConversationPlayer({ steps }) {
   const [step, setStep] = useState(0);
   const router = useRouter();
   const { profile } = router.query;
@@ -9,14 +9,11 @@ export default function ConversationPlayer({ steps, onEndReached }) {
   const next = () => {
     if (step < steps.length - 1) {
       setStep(step + 1);
-    } else {
-      if (onEndReached) onEndReached();
     }
   };
 
   const finish = () => {
     setStep(steps.length - 1);
-    if (onEndReached) onEndReached();
   };
 
   const back = () => {
@@ -63,7 +60,7 @@ export default function ConversationPlayer({ steps, onEndReached }) {
           onClick={next}
           className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
         >
-          {step === steps.length - 1 ? 'Feedback' : 'Suivant'}
+          {step === steps.length - 1 ? 'Terminé' : 'Suivant'}
         </button>
       </div>
 

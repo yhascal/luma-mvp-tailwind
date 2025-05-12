@@ -2,6 +2,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { v4 as uuidv4 } from 'uuid';
 import profileDetails from '../data/profileDetails';
@@ -49,26 +50,33 @@ export default function SelectionFlow() {
             </button>
           </div>
 
-          <div className="mt-10 space-y-4">
-            <button
-              onClick={() => router.push('/presentation2')}
-              className="px-5 py-3 text-base bg-gray-800 text-white rounded-full hover:bg-gray-700 transition"
-            >
-              ↩ Retour à la présentation
-            </button>
-          </div>
+<div className="mt-10 space-y-4">
+  <Link href="/scenario-feedback">
+    <button className="w-full px-6 py-3 rounded-2xl bg-indigo-600 text-white hover:bg-indigo-700 transition">
+      Donner mon feedback scénario
+    </button>
+  </Link>
 
-          {/* Bouton rouge feedback en bas à droite */}
-          <div className="absolute bottom-6 right-6">
-            <button
-              onClick={() => router.push('/feedback')}
-              className="px-4 py-2 bg-red-500 text-white rounded-2xl shadow-lg hover:bg-red-600 transition"
-            >
-              Donner mon feedback général
-            </button>
-          </div>
-        </>
-      ) : !profile ? (
+  <button
+    onClick={() => router.push('/presentation2')}
+    className="w-full px-6 py-3 text-base bg-gray-800 text-white rounded-full hover:bg-gray-700 transition"
+  >
+    ↩ Retour à la présentation
+  </button>
+</div>
+
+{/* Bouton rouge feedback en bas à droite */}
+<div className="absolute bottom-6 right-6">
+  <button
+    onClick={() => router.push('/feedback')}
+    className="px-4 py-2 bg-red-500 text-white rounded-2xl shadow-lg hover:bg-red-600 transition"
+  >
+    Donner mon feedback général
+  </button>
+</div>
+</>
+) : !profile ? (
+
         <>
           <h1 className="text-3xl font-bold text-center mb-10 text-black">🎭 Choisis un profil :</h1>
 

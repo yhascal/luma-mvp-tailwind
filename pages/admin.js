@@ -111,7 +111,6 @@ export default function AdminPage() {
                 <ul className="space-y-3">
                   {displayedScenarios.map((s, idx) => (
                     <li key={idx} className="border p-2 rounded bg-white">
-                      <p><strong>📌 Scénario :</strong> {s.scenario_id}</p>
                       <p><strong>🟢 Forces :</strong> {s.strengths}</p>
                       <p><strong>🔴 Faiblesses :</strong> {s.weaknesses}</p>
                       <p><strong>🟡 Opportunités :</strong> {s.opportunities}</p>

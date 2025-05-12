@@ -2,10 +2,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import ConversationPlayer from '../components/ConversationPlayer';
 import ProfileButton from '../components/ProfileButton';
-import FeedbackForm from '../components/FeedbackForm';
 
 export default function Q4ProfileB() {
-  const [showFeedback, setShowFeedback] = useState(false);
   const router = useRouter();
 
   const steps = [
@@ -47,12 +45,7 @@ export default function Q4ProfileB() {
       <div className="text-center mb-4">
         <ProfileButton profile="b" />
       </div>
-
-      <ConversationPlayer
-        steps={steps}
-        onEndReached={() => setShowFeedback(true)}
-      />
-    {showFeedback && <FeedbackForm scenarioId="q4-profile-b" />}
+<ConversationPlayer steps={steps} />
     </div>
   );
 }

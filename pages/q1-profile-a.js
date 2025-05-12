@@ -2,10 +2,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import ConversationPlayer from '../components/ConversationPlayer';
 import ProfileButton from '../components/ProfileButton';
-import FeedbackForm from '../components/FeedbackForm';
 
 export default function Q1ProfileA() {
-  const [showFeedback, setShowFeedback] = useState(false);
   const router = useRouter();
 
   const steps = [
@@ -50,11 +48,9 @@ export default function Q1ProfileA() {
         <ProfileButton profile="a" />
       </div>
 
-      <ConversationPlayer
-        steps={steps}
-        onEndReached={() => setShowFeedback(true)}
-      />
-     {showFeedback && <FeedbackForm scenarioId="q1-profile-a" />}
+<ConversationPlayer steps={steps} />
+
+ 
     </div>
   );
 }
