@@ -50,7 +50,7 @@ export default function SelectionFlow() {
             </button>
           </div>
 
-<div className="mt-10 space-y-4">
+<div className="mt-10 space-y-4 w-full max-w-xl">
   <Link href="/scenario-feedback">
     <button className="w-full px-6 py-3 rounded-2xl bg-indigo-600 text-white hover:bg-indigo-700 transition">
       Donner mon feedback scénario
@@ -59,7 +59,7 @@ export default function SelectionFlow() {
 
   <button
     onClick={() => router.push('/presentation2')}
-    className="w-full px-6 py-3 text-base bg-gray-800 text-white rounded-full hover:bg-gray-700 transition"
+    className="w-full px-6 py-3 text-base bg-gray-800 text-white rounded-2xl hover:bg-gray-700 transition"
   >
     ↩ Retour à la présentation
   </button>
@@ -74,6 +74,7 @@ export default function SelectionFlow() {
     Donner mon feedback général
   </button>
 </div>
+
 </>
 ) : !profile ? (
 
