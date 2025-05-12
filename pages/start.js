@@ -13,12 +13,10 @@ export default function SelectionFlow() {
   const [profile, setProfile] = useState(null);
   const [sessionId, setSessionId] = useState(null);
 
-  // Génère un sessionId unique au chargement
   useEffect(() => {
     setSessionId(uuidv4());
   }, []);
 
-  // Dès que question et profile sont choisis, on redirige vers /qX-profile
   useEffect(() => {
     if (question && profile && sessionId) {
       const route = `/${question.toLowerCase()}-${profile}`;
@@ -50,34 +48,32 @@ export default function SelectionFlow() {
             </button>
           </div>
 
-<div className="mt-10 space-y-4 w-full max-w-xl">
-  <Link href="/scenario-feedback">
-    <button className="w-full px-6 py-3 rounded-2xl bg-indigo-600 text-white hover:bg-indigo-700 transition">
-      Donner mon feedback scénario
-    </button>
-  </Link>
+          <div className="mt-10 space-y-4 w-full max-w-xl">
+            <button
+              onClick={() => router.push('/presentation2')}
+              className="w-full px-6 py-3 text-base bg-gray-800 text-white rounded-2xl hover:bg-gray-700 transition"
+            >
+              ↩ Retour à la présentation
+            </button>
+          </div>
 
-  <button
-    onClick={() => router.push('/presentation2')}
-    className="w-full px-6 py-3 text-base bg-gray-800 text-white rounded-2xl hover:bg-gray-700 transition"
-  >
-    ↩ Retour à la présentation
-  </button>
-</div>
-
-{/* Bouton rouge feedback en bas à droite */}
-<div className="absolute bottom-6 right-6">
-  <button
-    onClick={() => router.push('/feedback')}
-    className="px-4 py-2 bg-red-500 text-white rounded-2xl shadow-lg hover:bg-red-600 transition"
-  >
-    Donner mon feedback général
-  </button>
-</div>
-
-</>
-) : !profile ? (
-
+          {/* Boutons fixes en bas à droite */}
+          <div className="absolute bottom-6 right-6 space-y-3 flex flex-col items-end">
+            <button
+              onClick={() => router.push('/scenario-feedback')}
+              className="px-4 py-2 bg-indigo-600 text-white rounded-2xl shadow-lg hover:bg-indigo-700 transition"
+            >
+              Donner mon feedback scénario
+            </button>
+            <button
+              onClick={() => router.push('/feedback')}
+              className="px-4 py-2 bg-red-500 text-white rounded-2xl shadow-lg hover:bg-red-600 transition"
+            >
+              Donner mon feedback général
+            </button>
+          </div>
+        </>
+      ) : !profile ? (
         <>
           <h1 className="text-3xl font-bold text-center mb-10 text-black">🎭 Choisis un profil :</h1>
 

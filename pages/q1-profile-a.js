@@ -8,32 +8,30 @@ export default function Q1ProfileA() {
 
   const steps = [
     { speaker: 'user', text: "Je commence toujours plein de trucs, et puis je lâche en cours de route." },
-    { speaker: 'luma', text: "OK. Essayons de poser ça clairement.\nTu démarres facilement, mais à un moment, tu décroches.\nTu peux me donner un exemple concret où ça s’est produit récemment ?" },
-    { speaker: 'user', text: "J’avais décidé de me remettre à courir. J’y suis allé cinq fois, puis j’ai arrêté." },
-    { speaker: 'luma', text: "Et tu te disais quoi au début ? Pourquoi t'as commencé à ce moment-là et pas un autre ?" },
-    { speaker: 'user', text: "Classique, ça faisait partie de mes bonnes résolutions de début d'année, j'avais envie de démarrer l'année sur de bonnes bases." },
-    { speaker: 'luma', text: "Tu te souviens du moment où t’as commencé à lever le pied ?" },
-    { speaker: 'user', text: "Ouais. Une semaine où j’étais un peu surchargé. J’ai raté un footing, puis deux, et j’ai laissé filer." },
-    { speaker: 'luma', text: "OK. Donc au départ, c’était clair dans ta tête.\nMais t’avais rien de prévu si ça coinçait, si ?" },
-    { speaker: 'user', text: "Non mais bon, je n’allais pas faire un planning Excel juste pour courir un peu." },
-    { speaker: 'luma', text: "Je te rassure, je te parle pas de faire des tableaux Excel.\nMais y a peut-être un juste milieu entre l’envie brute… et l’organisation militaire.\nTu veux voir si on peut trouver un levier simple, qui t’aide à rester dedans sans que ce soit un poids ?" },
-    { speaker: 'user', text: "Vas-y. Tant que c’est pas un système à rallonge." },
-    { speaker: 'luma', text: "Parfait. Partons directement avec un cas réel.\nT’as un truc que tu voudrais lancer ou relancer en ce moment ?" },
-    { speaker: 'user', text: "J’y pensais ce week-end : j’aimerais bien publier des mini analyses sur LinkedIn.\nDes trucs courts, percutants, sur des tendances que je repère dans mon taf.\nMais je sens que ça va faire comme d’hab : je vais en faire 2–3 puis je vais arrêter." },
-    { speaker: 'luma', text: "Parfait. On garde ça.\nMais plutôt que de sortir une checklist, je te propose un truc plus vivant :\net si tu créais un point de retour automatique ?" },
-    { speaker: 'user', text: "Un quoi ?" },
-    { speaker: 'luma', text: "Un geste simple que tu fais si, au bout de 2 semaines, t’as rien publié.\nPas pour “te remotiver”, juste pour revenir dans le truc sans perdre de temps à cogiter." },
-    { speaker: 'user', text: "Comme quoi ?" },
-    { speaker: 'luma', text: "Exemples :\n– tu relis ton dernier post\n– tu relis ton dossier d’idées\n– ou tu jettes une phrase brute sur ce que t’as observé dans ton taf durant la semaine\nL’important, c’est que ce soit facile et que ça te remette dedans." },
-    { speaker: 'user', text: "Le plus simple, c’est relire mon dernier post.\nMême si je publie rien, ça me remettra dans le bain." },
-    { speaker: 'luma', text: "OK. Voilà ce que tu peux faire :\nTu bloques un rappel récurrent tous les 14 jours.\nPas pour t’obliger à te mettre sur ton bureau, juste : “Si rien posté depuis 2 semaines → relire mon dernier post.”\nTu peux rater un rappel, c’est pas un drame.\nMais si t’en rates deux d’affilée : là, t’as décroché.\nEt tu peux décider si tu relances… ou si tu assumes d’arrêter.\nEt si après 8 semaines, t’as tenu sans même penser au rappel, tu le vires.\nIl aura fait son taf." },
-    { speaker: 'user', text: "Simple, ça se tente. Je vais le régler tout de suite, on verra ce que ça donne." },
-    { speaker: 'luma', text: "🧠 T’avais pas besoin d’un cadre rigide mais sans point de retour, t’étais en roue libre.\n✅ Là, t’as posé une accroche claire, activable, désactivable.\n🎯 Juste assez pour pas laisser filer sans t’en rendre compte." }
+    { speaker: 'luma', text: "C’est quelque chose que beaucoup vivent mais rarement avec autant de franchise. Tu veux qu’on prenne un moment pour mieux comprendre ce qui se passe en toi quand ça arrive ?" },
+    { speaker: 'user', text: "Oui. J’en ai un peu marre de commencer des choses et de ne jamais aller au bout." },
+    { speaker: 'luma', text: "Ok. Plutôt que d’en parler “en général”, est-ce que tu peux repenser à la dernière fois que ça t’est arrivé ? Un projet, une envie, même un petit truc perso." },
+    { speaker: 'user', text: "Je m’étais dit que j’allais reprendre le dessin. J’ai acheté un carnet, j’ai dessiné deux fois… et puis plus rien." },
+    { speaker: 'luma', text: "Tu te souviens de ce que tu ressentais juste avant d’arrêter ? Pas besoin d’un long récit, juste ce qui te traversait dans ces moments-là." },
+    { speaker: 'user', text: "Je crois que je me disait que ça ne servait à rien. Que j’allais jamais être bon, donc autant arrêter là." },
+    { speaker: 'luma', text: "Donc ce n’était pas juste un oubli. C’était un moment où quelque chose en toi a changé, comme si l’élan avait perdu sa raison d’être. Est-ce que ça te parle ?" },
+    { speaker: 'user', text: "Oui… je crois que petit à petit je voyais de moins en moins d'intérêt à continuer." },
+    { speaker: 'luma', text: "Ce genre de décrochage, tu le rencontres ailleurs dans ta vie ? Pas forcément sur des projets… mais dans d’autres moments de ta vie où tu avances sans trop savoir pourquoi ?" },
+    { speaker: 'user', text: "Oui, ça m’arrive aussi dans mon boulot, ou parfois dans des relations. Quand je sens que je fais les choses par habitude… alors qu’en moi, je sens bien de ce n'est plus fluide. Mais je n’ose pas toujours écouter ce blocage qui s'installe." },
+    { speaker: 'luma', text: "Tu as une vraie finesse pour sentir quand un élan n’est plus juste. Mais comme ça reste souvent en arrière-plan, tu le vis comme un abandon alors que c’est peut-être un message intérieur." },
+    { speaker: 'luma', text: "Si tu veux, on peut essayer un petit exercice : → Repense à deux ou trois moments où tu t’es arrêté en cours de route. Et pose-toi cette question : Qu’est-ce qui manquait pour que tu aies envie de continuer ? Un mot. Une sensation. Un besoin non nourri." },
+    { speaker: 'user', text: "Je dirais : l’envie… une forme de fluidité… et le sentiment que ça avait du sens." },
+    { speaker: 'luma', text: "Merci. Tu viens peut-être de formuler ta boussole intérieure. Pas une règle. Juste trois choses à vérifier avant de t’engager plus loin :\n• Est-ce que j’en ai vraiment envie, pas juste “il faudrait” ?\n• Est-ce que je me sens porté par ce que je fais ou est-ce que je dois me pousser à chaque fois ?\n• Est-ce que ça a du sens pour moi, ici et maintenant ?\nSi deux de ces trois manquent… Alors ce n’est pas une démission. C’est un réflexe de préservation." },
+    { speaker: 'user', text: "Oui… il y a peut-être de ça. Je me rends compte que je me parle souvent durement… alors qu’au fond, je ressens juste que quelque chose ne colle plus." },
+    { speaker: 'luma', text: "Et si on l’appliquait au dessin, justement ? Juste pour voir ce que ta boussole dit, maintenant que tu la tiens." },
+    { speaker: 'user', text: "OK. Alors… envie : oui, au début. Mais je crois que je courais après une sensation un peu floue. Fluidité : non, j’étais tendu à chaque fois. Sens : difficile à dire. J’avais l’impression qu’il fallait que ça “serve” à quelque chose." },
+    { speaker: 'luma', text: "Tu viens de poser un vrai point d’appui. Ce projet-là ne t’a pas échappé par faiblesse. Tu as simplement senti, sans forcément le formuler, qu’il n’était pas nourrissant. Et c’est déjà beaucoup de pouvoir reconnaître ça, même à demi-mot." },
+    { speaker: 'user', text: "Oui… Je crois que ça pourrait m’aider à voir les choses un peu différemment." },
+    { speaker: 'luma', text: "🎯 Tu ne manques pas d’endurance ; tu captes quand une direction ne résonne plus.\n🧭 Ta boussole intérieure commence à se préciser : envie, fluidité, sens.\n🌱 Et tu viens d’ouvrir un espace pour entendre ce que tu ressens, sans t’y opposer tout de suite." },
   ];
 
   return (
     <div className="relative p-6">
-      {/* Bouton noir permanent en haut à gauche */}
       <div className="absolute top-4 left-4">
         <button
           onClick={() => router.push('/start?question=q1')}
@@ -43,14 +41,11 @@ export default function Q1ProfileA() {
         </button>
       </div>
 
-      {/* Bouton profil au centre */}
       <div className="text-center mb-4">
         <ProfileButton profile="a" />
       </div>
 
-<ConversationPlayer steps={steps} />
-
- 
+      <ConversationPlayer steps={steps} />
     </div>
   );
 }
