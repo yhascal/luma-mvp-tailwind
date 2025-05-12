@@ -1,7 +1,7 @@
-// components/FeedbackForm.js
 import { useState } from 'react';
+import { supabase } from '@/lib/supabaseClient'
 
-export default function FeedbackForm() {
+export default function FeedbackForm({ scenarioId }) {
   const [formData, setFormData] = useState({
     strengths: '',
     weaknesses: '',
@@ -10,9 +10,43 @@ export default function FeedbackForm() {
     comments: '',
   });
 
+  const [submitted, setSubmitted] = useState(false);
+
   const handleChange = (field) => (e) => {
     setFormData({ ...formData, [field]: e.target.value });
   };
+
+  const handleSubmit = async () => {
+    const sessionId = localStorage.getItem("lumaSessionId");
+
+    const { error } = await supabase
+      .from("scenario_feedbacks")
+      .insert([
+        {
+          session_id: sessionId,
+          scenario_id: scenarioId,
+          strengths: formData.strengths,
+          weaknesses: formData.weaknesses,
+          opportunities: formData.opportunities,
+          threats: formData.threats,
+          comments: formData.comments
+        }
+      ], { returning: 'minimal' }); // ✅ empêche Supabase d’essayer de retourner les lignes
+
+    if (error) {
+      console.error("Erreur lors de l'envoi du feedback scénario :", error);
+    } else {
+      setSubmitted(true);
+    }
+  };
+
+  if (submitted) {
+    return (
+      <div className="mt-12 text-green-700 font-semibold">
+        ✅ Feedback bien enregistré, merci !
+      </div>
+    );
+  }
 
   return (
     <div className="mt-12 space-y-4">
@@ -63,6 +97,14 @@ export default function FeedbackForm() {
           value={formData.comments}
           onChange={handleChange('comments')}
         />
+      </div>
+      <div className="text-right">
+        <button
+          onClick={handleSubmit}
+          className="px-6 py-2 rounded-xl bg-black text-white hover:bg-gray-800 transition"
+        >
+          Envoyer le feedback
+        </button>
       </div>
     </div>
   );

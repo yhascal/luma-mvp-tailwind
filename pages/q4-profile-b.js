@@ -52,7 +52,7 @@ export default function Q4ProfileB() {
         steps={steps}
         onEndReached={() => setShowFeedback(true)}
       />
-      {showFeedback && <FeedbackForm />}
+    {showFeedback && <FeedbackForm scenarioId="q4-profile-b" />}
     </div>
   );
 }

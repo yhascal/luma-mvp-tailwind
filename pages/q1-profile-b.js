@@ -54,7 +54,7 @@ export default function Q1ProfileB() {
         steps={steps}
         onEndReached={() => setShowFeedback(true)}
       />
-      {showFeedback && <FeedbackForm />}
+  {showFeedback && <FeedbackForm scenarioId="q1-profile-b" />}
     </div>
   );
 }

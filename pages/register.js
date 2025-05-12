@@ -1,8 +1,10 @@
-// pages/register.js
+// tout en haut
 "use client";
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { supabase } from '@/lib/supabaseClient';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Register() {
   const router = useRouter();
@@ -17,6 +19,7 @@ export default function Register() {
     question6: []
   });
   const [submitted, setSubmitted] = useState(false);
+
   const singleChoice = key =>
     ['question1', 'question2', 'question4', 'question5'].includes(key);
 
@@ -37,18 +40,36 @@ export default function Register() {
       });
     }
   };
-  const handleSubmit = e => {
-    e.preventDefault();
-    // TODO: envoyer formData au backend
 
-    // 1) On marque l'inscription en localStorage
-    if (typeof window !== "undefined") {
-      localStorage.setItem("lumaRegistered", "true");
+ const handleSubmit = async e => {
+  e.preventDefault();
+
+  const sessionId = uuidv4();
+
+  const { error } = await supabase.from("inscriptions").insert([
+    {
+      id: sessionId,
+      first_name: formData.firstName,
+      last_name: formData.lastName
     }
+  ]);
 
-    // 2) On redirige directement vers /start sans repasser par home
-    router.replace('/start');
-  };
+  if (error) {
+    console.error("Erreur Supabase inscription :", error);
+    return;
+  }
+
+  try {
+    localStorage.setItem("lumaSessionId", sessionId);
+    localStorage.setItem("lumaRegistered", "true");
+    console.log("🎯 UUID enregistré :", sessionId);
+  } catch (e) {
+    console.error("❌ Erreur localStorage :", e);
+  }
+
+  setSubmitted(true);
+};
+
   if (submitted) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-green-50 p-6">
@@ -131,6 +152,7 @@ export default function Register() {
             </label>
           ))}
         </div>
+
         {/* Question 2 */}
         <div className="space-y-2">
           <h3 className="text-xl font-semibold text-gray-800">
@@ -153,6 +175,7 @@ export default function Register() {
             </label>
           ))}
         </div>
+
         {/* Question 3 */}
         <div className="space-y-2">
           <h3 className="text-xl font-semibold text-gray-800">
@@ -179,7 +202,7 @@ export default function Register() {
             </label>
           ))}
         </div>
-               {/* Question 4 */}
+        {/* Question 4 */}
         <div className="space-y-2">
           <h3 className="text-xl font-semibold text-gray-800">
             📋 4. Quel format de réponse te convient le mieux ?
@@ -252,7 +275,6 @@ export default function Register() {
             </label>
           ))}
         </div>
-
         {/* Bouton de soumission */}
         <div className="text-center mt-6">
           <button

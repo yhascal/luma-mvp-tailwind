@@ -54,7 +54,7 @@ export default function Q4ProfileC() {
         steps={steps}
         onEndReached={() => setShowFeedback(true)}
       />
-      {showFeedback && <FeedbackForm />}
+{showFeedback && <FeedbackForm scenarioId="q4-profile-c" />}
     </div>
   );
 }

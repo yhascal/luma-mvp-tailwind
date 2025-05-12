@@ -1,6 +1,6 @@
-// pages/feedback.js
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { supabase } from '@/lib/supabaseClient';
 
 export default function FeedbackPage() {
   const [formData, setFormData] = useState({
@@ -17,10 +17,28 @@ export default function FeedbackPage() {
     setFormData({ ...formData, [field]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: send to Supabase here
-    setSubmitted(true);
+
+    const sessionId = localStorage.getItem("lumaSessionId");
+
+    const { error } = await supabase.from("feedbacks").insert([
+      {
+        session_id: sessionId,
+        forces: formData.liked,
+        faults: formData.disliked,
+        threats: formData.viable,
+        opportunities: formData.missing,
+        comments: formData.other,
+      }
+    ]);
+
+    if (error) {
+      console.error("Erreur Supabase :", error);
+      alert("Erreur Supabase : " + error.message);
+    } else {
+      setSubmitted(true);
+    }
   };
 
   if (submitted) {
