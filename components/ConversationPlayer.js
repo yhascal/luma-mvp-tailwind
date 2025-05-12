@@ -4,7 +4,7 @@ import { useState } from 'react';
 export default function ConversationPlayer({ steps }) {
   const [step, setStep] = useState(0);
   const router = useRouter();
-  const { profile } = router.query;
+  const { profile, question } = router.query;
 
   const next = () => {
     if (step < steps.length - 1) {
@@ -13,7 +13,11 @@ export default function ConversationPlayer({ steps }) {
   };
 
   const finish = () => {
-    setStep(steps.length - 1);
+    if (question) {
+      router.push(`/start?question=${question}`);
+    } else {
+      router.push('/start');
+    }
   };
 
   const back = () => {
@@ -57,7 +61,7 @@ export default function ConversationPlayer({ steps }) {
           Retour
         </button>
         <button
-          onClick={next}
+          onClick={step === steps.length - 1 ? finish : next}
           className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
         >
           {step === steps.length - 1 ? 'Terminé' : 'Suivant'}
