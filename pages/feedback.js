@@ -1,8 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { supabase } from '../lib/supabaseClient';
 
 export default function FeedbackPage() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     liked: "",
     disliked: "",
@@ -13,13 +15,13 @@ export default function FeedbackPage() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+
   const handleChange = (field) => (e) => {
     setFormData({ ...formData, [field]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const sessionId = localStorage.getItem("lumaSessionId");
 
     const { error } = await supabase.from("feedbacks").insert([
@@ -43,9 +45,15 @@ export default function FeedbackPage() {
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen px-6">
-        <h1 className="text-2xl font-bold mb-4">🙏 Merci pour ton retour !</h1>
-        <p className="text-center text-gray-600">Tes réponses ont bien été enregistrées.</p>
+      <div className="flex flex-col items-center justify-center min-h-screen px-6 text-center space-y-4">
+        <h1 className="text-2xl font-bold text-green-700">🙏 Merci pour ton retour !</h1>
+        <p className="text-gray-600">Tes réponses ont bien été enregistrées.</p>
+        <button
+          onClick={() => router.push("/start")}
+          className="px-4 py-2 mt-4 bg-gray-200 text-black rounded hover:bg-gray-300 transition"
+        >
+          ↩ Retour
+        </button>
       </div>
     );
   }
@@ -90,8 +98,8 @@ export default function FeedbackPage() {
 
       <div className="absolute bottom-6 left-6">
         <button
-          onClick={() => window.location.href = '/start'}
-          className="px-4 py-2 bg-gray-200 text-black rounded disabled:opacity-50"
+          onClick={() => router.push('/start')}
+          className="px-4 py-2 bg-gray-200 text-black rounded hover:bg-gray-300 transition"
         >
           ↩ Retour
         </button>
