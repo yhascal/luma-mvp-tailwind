@@ -168,22 +168,6 @@ export default function HomePage() {
       <p>
         Mais pour réfléchir, formuler un choix, ou clarifier une situation personnelle, beaucoup s’en servent aujourd’hui faute d’alternative spécialisée. C’est là que Luma intervient.
       </p>
-      <h2 className="text-2xl font-semibold mt-10">🚀 Ce que vous testez aujourd’hui</h2>
-      <ul className="list-disc pl-6 space-y-2 mt-2">
-<>
-  <p>La version que vous allez tester est une <strong>version ultra simplifiée</strong> de Luma.</p>
-  <p>Elle vous permettra :</p>
-  <ul style={{ listStyle: "none", paddingLeft: 0 }}>
-    <li>→ D'expérimenter <strong>deux types de réflexions</strong> (une personnelle, une concrète).</li>
-    <li>→ De ressentir <strong>comment Luma ajuste sa manière de dialoguer selon votre profil</strong>.</li>
-    <li>→ De percevoir <strong>la différence</strong> entre un échange classique et un accompagnement adaptatif.</li>
-  </ul>
-</>
-      </ul>
-
-      <p className="italic text-sm mt-2">
-        ⚠️ Le contenu et le choix des scénarios n’ont pas d’importance ; ils ont uniquement été choisis pour mettre en avant la capacité de Luma à répondre à une problématique posée et s’adapter à l’utilisateur.
-      </p>
 
       <p className="mt-4 font-semibold">
         <span className="text-black font-bold">L’objectif est simple :</span><br />

@@ -201,7 +201,7 @@ export default function Presentation2() {
       <div className="mt-10 text-center">
         <Link href="/start">
           <button className="px-6 py-3 bg-black text-white rounded-2xl shadow text-lg hover:bg-gray-800 transition">
-            Retour vers le choix des questions
+            Donner mon feedback
           </button>
         </Link>
       </div>

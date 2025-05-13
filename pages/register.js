@@ -77,11 +77,11 @@ export default function Register() {
           🙏 Merci pour ta participation !
         </h1>
         <p className="text-center text-green-700 mb-6">
-          Ton inscription est simulée. Tu peux maintenant lancer le test.
+          Ton inscription est simulée. Tu peux maintenant donner ton feedback.
         </p>
         <Link href="/start">
           <button className="px-6 py-3 bg-green-600 text-white rounded-2xl hover:bg-green-700 transition">
-            Lancer le test
+            Donner mon feedback
           </button>
         </Link>
       </div>
@@ -96,13 +96,7 @@ export default function Register() {
         Ce formulaire est une <strong>simulation</strong>. Seuls ton prénom et nom 
         seront pris en compte pour trier les feedbacks.
       </p>
-      <div className="mb-6 p-4 bg-indigo-50 rounded-lg">
-        <strong className="text-indigo-700">
-          ⚠️ Pour rappel, tu liras ensuite des scénarios avec 
-          <span className="text-indigo-900"> 3 profils prédéterminés </span>
-          basés sur une combinaison de ces 6 réponses, que tu découvriras plus loin.
-        </strong>
-      </div>
+    
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Prénom & Nom */}
         <div className="grid grid-cols-2 gap-4">
@@ -281,7 +275,7 @@ export default function Register() {
             type="submit"
             className="px-8 py-3 bg-indigo-600 text-white font-semibold rounded-full hover:bg-indigo-700 transition"
           >
-            Commencer le test
+            Donner mon feedback
           </button>
         </div>
       </form>
