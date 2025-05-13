@@ -65,11 +65,11 @@ export default function FeedbackPage() {
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="font-medium">💚 Qu’est-ce que t’as aimé chez Luma ?</label>
+          <label className="font-medium">💚 Qu’est-ce que tu aimes chez Luma ?</label>
           <textarea value={formData.liked} onChange={handleChange("liked")} rows={3} className="w-full p-2 border rounded" />
         </div>
         <div>
-          <label className="font-medium">💔 Qu’est-ce que t’as pas aimé ?</label>
+          <label className="font-medium">💔 Qu’est-ce que tu n'as pas aimé ?</label>
           <textarea value={formData.disliked} onChange={handleChange("disliked")} rows={3} className="w-full p-2 border rounded" />
         </div>
         <div>
