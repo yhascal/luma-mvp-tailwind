@@ -61,7 +61,7 @@ export default function FeedbackPage() {
   return (
     <div className="max-w-3xl mx-auto p-6 space-y-6 relative">
       <h1 className="text-3xl font-bold text-center">🧠 Ton avis sur Luma</h1>
-      <p className="text-center text-gray-600">Tu viens de terminer le test. Merci de prendre une minute pour nous dire ce que tu en as pensé.</p>
+      <p className="text-center text-gray-600">Merci de prendre une minute pour nous dire ce que tu en as pensé.</p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
